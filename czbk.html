@@ -966,8 +966,129 @@
 
 
 <script>
-    var dong = document.getElementsByClassName('dong')[0]
-    var web_wrap = document.getElementsByClassName('web-wrap')[0]
+
+    window.onload = function(){
+        var dong = document.getElementsByClassName('dong')[0]
+        var web_wrap = document.getElementsByClassName('web-wrap')[0]
+
+        dong.onmouseenter = function () {
+
+            fn(this)
+
+        }
+
+        dong.onmouseleave = function () {
+            this.style.top = 0;
+            this.style.left = 0;
+        }
+
+        var fc = document.getElementsByClassName('fc-box')[0].children
+        for(var f = 0; f<fc.length; f++){
+            fc[f].onmouseenter = function(){
+                for(var f2 = 0; f2<fc.length; f2++){
+                    fc[f2].style.width = '12.5%'
+                }
+                this.style.width = '50%'
+            }
+
+            fc[f].onmouseleave = function(){
+                for(var f3 = 0; f3<fc.length; f3++){
+                    fc[f3].style.width = '20%'
+                }
+            }
+        }
+
+        var djqh = document.getElementsByClassName('djqh')[0].children
+        var ul_arr = document.getElementsByClassName('sf-box')[0].children
+
+
+        for(var d = 0; d<djqh.length; d++){
+            djqh[d].index = d+1
+            djqh[d].onclick = function(){
+                for(var g = 0; g<djqh.length; g++){
+                    djqh[g].className = ''
+                }
+                this.className = 'action'
+
+                var ul_i = this.index-1
+
+                for(var ull = 0; ull<ul_arr.length; ull++){
+                    if(ull == ul_i){
+
+                        var ul = ul_arr[ul_i]
+
+                        ul.style.zIndex = 20
+                        var li_arr = ul.children
+
+                        for(var li_i = 0; li_i<li_arr.length; li_i++){
+                            li_arr[li_i].style.transform = 'scale(1,1) rotate(0deg) translate(0,0)'
+//                        li_arr[li_i].style.transform = 'scale(1,1)'
+                            li_arr[li_i].style.opacity = '1'
+                        }
+
+                    }else{
+                        var ul2 = ul_arr[ull]
+                        ul2.style.zIndex = 1
+                        var li_arr2 = ul2.children
+                        for(var li_i2 = 0; li_i2<li_arr2.length; li_i2++){
+                            li_arr2[li_i2].style.transform = 'scale(0,0) rotate(0deg) translate(0,0)'
+                            li_arr2[li_i2].style.opacity = '0'
+                        }
+                        (function(liArr){
+                            setTimeout(function(){
+                                for(var li_i3 = 0; li_i3<liArr.length; li_i3++){
+                                    liArr[li_i3].style.transform = 'rotate(20deg) translate(200px,120px)'
+                                }
+                            },500)
+                        })(li_arr2)
+
+                    }
+                }
+            }
+        }
+
+
+        var wo = document.getElementsByClassName('wo')[0].children
+        var woImg = document.getElementsByClassName('wo-img')
+
+        for(var w = 0; w<wo.length; w++){
+            wo[w].index = w
+            wo[w].onmouseenter = function(){
+                woImg[this.index].src = 'images/box1_bg'+ (this.index+1) +'.gif'
+            }
+            wo[w].onmouseleave = function(){
+                woImg[this.index].src = 'images/box1_bg'+ (this.index+1) +'.jpg'
+            }
+        }
+
+        window.onscroll = function(){
+            var top = scroll().top
+            if(top>300){
+                web_wrap.style.transform = 'translateY(0px)'
+                web_wrap.style.opacity = '1'
+            }
+
+            if(top>500){
+                var xx = 200
+                for(var ii = 0; ii<wo.length; ii++){
+                    (function(index,xx){
+                        setTimeout(function(){
+                            wo[index].style.transform = 'translateY(0px)'
+                        },xx)
+                    })(ii,xx)
+                    xx += 200
+                }
+
+            }
+
+            if(top>2300){
+                var sf = document.getElementsByClassName('sf-box')[0]
+                sf.style.transform = 'translateY(0px)'
+            }
+
+        }
+
+    }
 
 
     function fn(ele) {
@@ -1028,124 +1149,6 @@
                 y = event.clientY
             }
         }
-
-
-    }
-    dong.onmouseenter = function () {
-
-        fn(this)
-
-    }
-
-    dong.onmouseleave = function () {
-        this.style.top = 0;
-        this.style.left = 0;
-    }
-
-    var fc = document.getElementsByClassName('fc-box')[0].children
-    for(var f = 0; f<fc.length; f++){
-        fc[f].onmouseenter = function(){
-            for(var f2 = 0; f2<fc.length; f2++){
-                fc[f2].style.width = '12.5%'
-            }
-            this.style.width = '50%'
-        }
-
-        fc[f].onmouseleave = function(){
-            for(var f3 = 0; f3<fc.length; f3++){
-                fc[f3].style.width = '20%'
-            }
-        }
-    }
-
-    var djqh = document.getElementsByClassName('djqh')[0].children
-    var ul_arr = document.getElementsByClassName('sf-box')[0].children
-
-
-    for(var d = 0; d<djqh.length; d++){
-        djqh[d].index = d+1
-        djqh[d].onclick = function(){
-            for(var g = 0; g<djqh.length; g++){
-                djqh[g].className = ''
-            }
-            this.className = 'action'
-
-            var ul_i = this.index-1
-
-            for(var ull = 0; ull<ul_arr.length; ull++){
-                if(ull == ul_i){
-
-                    var ul = ul_arr[ul_i]
-
-                    ul.style.zIndex = 20
-                    var li_arr = ul.children
-
-                    for(var li_i = 0; li_i<li_arr.length; li_i++){
-                        li_arr[li_i].style.transform = 'scale(1,1) rotate(0deg) translate(0,0)'
-//                        li_arr[li_i].style.transform = 'scale(1,1)'
-                        li_arr[li_i].style.opacity = '1'
-                    }
-
-                }else{
-                    var ul2 = ul_arr[ull]
-                    ul2.style.zIndex = 1
-                    var li_arr2 = ul2.children
-                    for(var li_i2 = 0; li_i2<li_arr2.length; li_i2++){
-                        li_arr2[li_i2].style.transform = 'scale(0,0) rotate(0deg) translate(0,0)'
-                        li_arr2[li_i2].style.opacity = '0'
-                    }
-                    (function(liArr){
-                        setTimeout(function(){
-                            for(var li_i3 = 0; li_i3<liArr.length; li_i3++){
-                                liArr[li_i3].style.transform = 'rotate(20deg) translate(200px,120px)'
-                            }
-                        },500)
-                    })(li_arr2)
-
-                }
-            }
-        }
-    }
-
-
-    var wo = document.getElementsByClassName('wo')[0].children
-    var woImg = document.getElementsByClassName('wo-img')
-
-    for(var w = 0; w<wo.length; w++){
-        wo[w].index = w
-        wo[w].onmouseenter = function(){
-            woImg[this.index].src = 'images/box1_bg'+ (this.index+1) +'.gif'
-        }
-        wo[w].onmouseleave = function(){
-            woImg[this.index].src = 'images/box1_bg'+ (this.index+1) +'.jpg'
-        }
-    }
-
-    window.onscroll = function(){
-        var top = scroll().top
-        if(top>300){
-            web_wrap.style.transform = 'translateY(0px)'
-            web_wrap.style.opacity = '1'
-        }
-
-        if(top>500){
-            var xx = 200
-            for(var ii = 0; ii<wo.length; ii++){
-                (function(index,xx){
-                    setTimeout(function(){
-                        wo[index].style.transform = 'translateY(0px)'
-                    },xx)
-                })(ii,xx)
-                xx += 200
-            }
-
-        }
-
-        if(top>2300){
-            var sf = document.getElementsByClassName('sf-box')[0]
-            sf.style.transform = 'translateY(0px)'
-        }
-
     }
 
     function scroll() {
