@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>传智播客</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            /*height: 5000px;*/
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a{
+            text-decoration: none;
+        }
+        .header {
+            height: 45px;
+            background: #444;
+            padding: 0 30px;
+        }
+
+        .header .logo {
+            float: left;
+            width: 146px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            width: 100px;
+        }
+
+        .header .nav {
+            float: right;
+            line-height: 45px;
+        }
+
+        .header .nav ul {
+        }
+
+        .header .nav ul li {
+            margin-left: 10px;
+            float: left;
+        }
+
+        .header .nav ul li a {
+            text-decoration: none;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .ban {
+            width: 100%;
+            height: 950px;
+            background: #041527;
+            position: relative;
+        }
+
+        .ban .bg-img {
+            width: 100%;
+            animation: bg 1s;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .ban .bg-img img {
+            width: 100%;
+        }
+
+        .ban .hd {
+            position: absolute;
+            width: 100%;
+            z-index: 2;
+            top: 140px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .ban .hd .left-img {
+            transform: translateX(-100px);
+            animation: left 1.5s;
+        }
+
+        .ban .hd .right-img {
+            transform: translateX(100px);
+            animation: right 1.5s;
+        }
+
+        .ban .xz {
+            position: absolute;
+            right: 120px;
+            top: 160px;
+            z-index: 3;
+        }
+
+        .ban .xz .box1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #999;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            animation: xz 4s linear infinite;
+        }
+
+        .ban .xz .box2 {
+            width: 170px;
+            height: 170px;
+            border: 3px solid #aaa;
+            border-radius: 50%;
+        }
+
+        .ban .xz .box3 {
+            width: 26px;
+            height: 26px;
+            background: #E1FF00;
+            border-radius: 50%;
+            position: absolute;
+            left: -5px;
+            top: 44%;
+        }
+
+        .ban .xz .box4 {
+            width: 26px;
+            height: 26px;
+            background: #12b37f;
+            border-radius: 50%;
+            position: absolute;
+            right: -5px;
+            top: 44%;
+        }
+
+        .ban .xz .box4 .sml {
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            left: 2px;
+            top: 9px;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        .ban .xz .box5 {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #E1FF00;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .ban .xz .box5 p {
+            text-align: center;
+            width: 100%;
+            font-size: 40px;
+            font-weight: 800;
+        }
+
+        .ban .xz-text {
+            position: absolute;
+            z-index: 4;
+            top: 25px;
+            left: 25px;
+        }
+
+        .ban .dong {
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: 6;
+        }
+
+        .ban .qiang {
+            position: absolute;
+            text-align: center;
+            z-index: 16;
+            width: 100%;
+            height: 80px;
+            left: 0;
+            top: 600px;
+        }
+
+        .ban .qiang .wrap {
+            display: inline-block;
+            width: 250px;
+            height: 80px;
+            /*background: #ffffff;*/
+            line-height: 80px;
+            color: #E1FF00;
+            font-size: 40px;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ban .qiang .wrap div {
+            position: absolute;
+            background: #E1FF00;
+            transition: all 0.2s linear;
+        }
+
+        .ban .qiang .wrap .d1 {
+            width: 6px;
+            height: 80px;
+            top: 80px;
+        }
+
+        .ban .qiang .wrap .d2 {
+            width: 250px;
+            height: 1px;
+            left: 250px;
+            transition: all 0.2s linear 0.2s;
+        }
+
+        .ban .qiang .wrap .d3 {
+            width: 6px;
+            height: 80px;
+            right: 0;
+            top: 80px;
+        }
+
+        .ban .qiang .wrap .d4, .d5 {
+            width: 250px;
+            height: 6px;
+            bottom: 0;
+        }
+
+        .ban .qiang .wrap .d5 {
+            background: #041527;
+            z-index: 8;
+        }
+
+        .ban .qiang .wrap .d6 {
+            width: 200px;
+            height: 6px;
+            right: 25px;
+            bottom: 0;
+            z-index: 9;
+        }
+
+        .ban .qiang .wrap:hover .d4 {
+            z-index: 10;
+            height: 1px;
+        }
+
+        .ban .qiang .wrap:hover .d5 {
+
+            height: 1px;
+        }
+
+        .ban .qiang .wrap:hover .d6 {
+            right: 0;
+            height: 1px;
+        }
+
+        .ban .qiang .wrap:hover .d1 {
+            top: 0;
+            width: 1px;
+        }
+
+        .ban .qiang .wrap:hover .d3 {
+            top: 0;
+            width: 1px;
+        }
+
+        .ban .qiang .wrap:hover .d2 {
+            left: 0;
+            /*height: 1px;*/
+        }
+
+        .ban .select-web {
+            width: 100%;
+            height: 125px;
+            position: absolute;
+            padding-top: 10px;
+            z-index: 17;
+            top: 750px;
+            text-align: center;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .ban .select-web .web-wrap {
+            width: 800px;
+            display: inline-block;
+            transform: translateY(-135px);
+            opacity: 0;
+            transition: all 1s;
+        }
+
+        .ban .select-web .web-wrap {
+        }
+
+        .ban .select-web .web-box {
+            font-size: 60px;
+            font-weight: 700;
+            display: inline-block;
+            width: 800px;
+            border-bottom: 6px solid #fff;
+        }
+
+        .ban .select-web .web-img {
+            text-align: left;
+        }
+
+        .wo{
+            width: 100%;
+            height: 480px;
+            background: #041527;
+            display: flex;
+            box-sizing: border-box;
+            padding: 0 10px;
+            /*overflow: hidden;*/
+        }
+        .wo>div{
+            flex: 1;
+            text-align: center;
+            transform: translateY(550px);
+            transition: all 0.5s;
+            color: #fff;
+            font-size: 20px;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+        .wo>div:hover{
+            top: -30px;
+            height: 510px;
+        }
+        .wo .wo-bottom{
+            margin-top: 10px;
+        }
+        .wo .wo-top{
+            position: absolute;
+            top: 30px;
+            left: 50px;
+            text-align: left;
+        }
+        .wo .p1{
+            color: #0890da;
+            font-size: 30px;
+        }
+        .wo .p2{
+            color: #e6bc08;
+            font-size: 30px;
+        }
+        .wo .p3{
+            color: #dd581d;
+            font-size: 30px;
+        }
+        .wo .p4{
+            color: #0dee99;
+            font-size: 30px;
+        }
+
+        .wsmzh{
+            text-align: center;
+            background: #041527;
+            padding-top: 40px;
+            color: #fff;
+            position: relative;
+        }
+        .wsmzh .consult{
+            display: inline-block;
+            margin: 40px 0 50px 0;
+            width: 350px;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 30px;
+            background: #E1FF00;
+            font-size: 26px;
+            font-weight: 700;
+            color: #000;
+            overflow: hidden;
+            position: relative;
+        }
+        .wsmzh .consult .dh1{
+            width: 100%;
+            height: 100%;
+            background: #3f51b5;
+            transform: translateY(-60px);
+            transition: all 0.3s 0.3s;
+            position: absolute;
+            z-index: 2;
+        }
+        .wsmzh .consult .dh2{
+            width: 100%;
+            height: 100%;
+            background: #7986cb;
+            transform: translateY(-60px);
+            transition: all 0.3s;
+            position: absolute;
+            z-index: 1;
+        }
+        .wsmzh .consult p{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: transparent;
+            border-radius: 30px;
+            z-index: 3;
+            transition: all 0.3s 0.3s;
+        }
+        .wsmzh .consult:hover div{
+            transform: translateY(0px);
+        }
+        .wsmzh .consult:hover p{
+            color: #fff;
+        }
+
+        .wsmzh .ufo{
+            position: absolute;
+            top: -10px;
+            left: 80px;
+        }
+        .fc{
+            text-align: center;
+            background: #E4EBE9 url(images/bg.jpg);
+        }
+        .fc .fc-box{
+            display: inline-block;
+            width: 900px;
+            height: 552px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .fc .fc-box div{
+            width: 20%;
+            height: 100%;
+            display: inline-block;
+            box-sizing: border-box;
+            transition: all 0.3s;
+            overflow: hidden;
+            padding: 20px 0 0 40px;
+            text-align: left;
+        }
+        .fc .fc-box div img{
+            display: block;
+            width: 400px;
+        }
+        .fc .fc-box div:nth-child(1){
+            background: #e65840;
+        }
+        .fc .fc-box div:nth-child(2){
+            background: #fccf8e;
+        }
+        .fc .fc-box div:nth-child(3){
+            background: #72c8e7;
+        }
+        .fc .fc-box div:nth-child(4){
+            background: #a9a193;
+        }
+        .fc .fc-box div:nth-child(5){
+            background: #41eecb;
+        }
+
+        .fc .web-wrap{
+            width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 50px 0;
+        }
+        .fc .web-wrap .web-box{
+            border-bottom: 3px solid #05B5BF;
+            color: #009199;
+            font-size: 60px;
+            font-weight: 700;
+        }
+        .fc .wsmzh{
+            background: #E4EBE9 url(images/bg.jpg);
+        }
+        .fc .wsmzh p{
+            color: #000;
+        }
+        .fc .wsmzh .consult{
+            background: #05B5BF;
+
+        }
+        .fc .wsmzh .consult p{
+            color: #fff;
+        }
+
+        .sfdh{
+            background: #81c439;
+            padding: 20px;
+            height: 540px;
+            /*box-sizing: border-box;*/
+        }
+        .sfdh .sf-box{
+            width: 936px;
+            height: 500px;
+            margin: 0 auto;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            overflow: hidden;
+            position: relative;
+            font-size: 0;
+            -webkit-transform: translateY(500px);
+            -moz-transform: translateY(500px);
+            -ms-transform: translateY(500px);
+            -o-transform: translateY(500px);
+            transform: translateY(500px);
+            transition: all 0.5s;
+            -moz-transition: all 0.5s;
+        }
+        .sfdh .sf-box ul{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            /*opacity: 0;*/
+
+            /*-webkit-transition: opacity 0.5s;*/
+            /*-moz-transition: opacity 0.5s;*/
+
+            /*transition: opacity 0.5s;*/
+        }
+        .sfdh .sf-box ul:nth-child(2) li,.sfdh .sf-box ul:nth-child(3) li{
+            transform: rotate(20deg) translate(200px,120px);
+            -moz-transform: rotate(20deg) translate(200px,120px);
+
+        }
+        .sfdh .sf-box ul:nth-child(1){
+            /*opacity: 1;*/
+            z-index: 20;
+        }
+        .sfdh .sf-box ul:not(:nth-child(1)) li{
+            opacity: 0;
+        }
+        .sfdh .sf-box ul li{
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            margin: 10px 0;
+            width: 300px;
+            height: 225px;
+            display: inline-block;
+            transition: all 1s;
+            -moz-transition: all 1s;
+        }
+        .sfdh .sf-box ul li img{
+            transition: all 0.5s;
+            -moz-transition: all 0.5s;
+        }
+        .sfdh .sf-box ul li:hover img{
+            transform: scale(1.05,1.05);
+        }
+        .sfdh .sf-box ul li:nth-child(2){
+            /*background: #f0ff00;*/
+            margin: 10px 18px;
+        }
+
+        .sfdh .sf-box ul li:nth-child(5){
+            /*background: #055ff0;*/
+            margin: 10px 18px;
+        }
+
+        .sfdh .djqh{
+            text-align: center;
+        }
+        .sfdh .djqh span{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            background: #fff;
+            opacity: 0.6;
+            border-radius: 50%;
+            margin: 0 10px;
+            cursor: pointer;
+            color: #649623;
+        }
+
+        .sfdh .djqh span.action {
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            opacity: 1;
+        }
+
+        .floor{
+            text-align: center;
+            background: #eaeaea;
+            padding-top: 50px;
+        }
+
+        .floor>div:first-child img{
+            width: 100px;
+            margin: 0 30px;
+        }
+        .floor>div:first-child img.big{
+            width: 120px;
+        }
+        .floor .jrcz{
+            padding: 40px 0;
+            font-size: 14px;
+        }
+        .floor .jrcz a{
+            margin: 0 10px;
+            color: #707070;
+        }
+        .floor .jrcz span{
+            color: #707070;
+        }
+        .floor .yqlj{
+            font-size: 12px;
+            color: #707070;
+            margin-bottom: 10px;
+        }
+
+        .floor .yqlj a{
+            margin: 0 5px;
+            color: #707070;
+        }
+        .floor .yqlj a:hover{
+            color: #f00;
+        }
+        .floor .phone{
+            padding: 20px 0 40px 0;
+            font-size: 12px;
+            color: #707070;
+        }
+        .floor .img-360{
+            padding: 0 0 30px 0;
+        }
+        .floor .img-360 img{
+            width: 80px;
+            margin: 0 5px;
+        }
+        .bottom{
+            background: #343B43;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            color: #c2c2c2;
+            font-size: 12px
+        }
+        .bottom a{
+            color: #188eee;
+            margin: 0 10px;
+        }
+
+        @keyframes bg {
+            from {
+                transform: translateY(600px);
+            }
+            to {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes left {
+            from {
+                transform: translateX(-900px);
+            }
+            to {
+                transform: translateX(-100px);
+            }
+        }
+
+        @keyframes right {
+            from {
+                transform: translateX(900px);
+            }
+            to {
+                transform: translateX(100px);
+            }
+        }
+
+        @keyframes xz {
+            from {
+                transform: rotateZ(0deg);
+            }
+            to {
+                transform: rotateZ(360deg);
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="big-box">
+    <div class="header">
+        <div class="logo">
+            <div>
+                <img src="images/logo-bai.png" alt="">
+            </div>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="">前端与移动培训</a></li>
+                <li><a href="">课程详解</a></li>
+                <li><a href="">视频下载</a></li>
+                <li><a href="">免费资源</a></li>
+                <li><a href="">报名流程</a></li>
+                <li><a href="">技术社区</a></li>
+                <li><a href="">在线咨询</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="ban">
+
+        <div class="bg-img">
+            <img src="images/ban_bg.png" alt="">
+        </div>
+
+        <div class="dong">
+            <div class="xz">
+                <div class="xz-text">
+                    <div class="box5"><p>Web<br/>前端</p></div>
+                </div>
+                <div class="box1">
+                    <div class="box2">
+                        <div class="box3"></div>
+                        <div class="box4">
+                            <div class="sml"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hd">
+                <div class="left-img">
+                    <img src="images/hd1.png" alt="">
+                </div>
+                <div class="right-img">
+                    <img src="images/hd2.png" alt="">
+                </div>
+                <img src="images/hd_down.png" alt="">
+            </div>
+        </div>
+
+        <div class="qiang">
+            <div class="wrap">
+                <div class="d1"></div>
+                <div class="d2"></div>
+                <div class="d3"></div>
+                <div class="d4"></div>
+                <div class="d5"></div>
+                <div class="d6"></div>
+                <p class="text">立即抢座</p>
+            </div>
+        </div>
+
+        <div class="select-web">
+            <div class="web-wrap">
+                <div class="web-box">
+                    <span>为</span><span>何</span><span>那</span><span>么</span><span>多</span><span>人</span><span>选</span><span>择</span><span>前</span><span>端</span><span>？</span>
+                </div>
+                <div class="web-img">
+                    <img src="images/hd_bg.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wo">
+        <div>
+            <div class="wo-top">
+                <p class="p1">我要就业</p>
+                <p>大学毕业</p>
+                <p>找不到好工作？</p>
+            </div>
+            <img class="wo-img" src="images/box1_bg1.jpg" alt="">
+            <div class="wo-bottom">
+                <p class="p1">针对就业</p>
+                <p>学职业技能，从根本上解决毕业</p>
+                <p>就等于失业的困顿</p>
+            </div>
+        </div>
+        <div>
+            <div class="wo-top">
+                <p class="p2">我要转行</p>
+                <p>现有岗位工资太低，</p>
+                <p>离家还远？</p>
+            </div>
+            <img class="wo-img" src="images/box1_bg2.jpg" alt="">
+            <div class="wo-bottom">
+                <p class="p2">针对转行</p>
+                <p>实战老师带你上路，</p>
+                <p>轻松无误区，职业道路更宽广</p>
+            </div>
+        </div>
+        <div>
+            <div class="wo-top">
+                <p class="p3">我要加薪</p>
+                <p>干的比牛多，拿到的</p>
+                <p>却屈指可数？</p>
+            </div>
+            <img class="wo-img" src="images/box1_bg3.jpg" alt="">
+            <div class="wo-bottom">
+                <p class="p3">针对加薪</p>
+                <p>学了它，用实力说话</p>
+                <p>加薪不再遥遥无期</p>
+            </div>
+        </div>
+        <div>
+            <div class="wo-top">
+                <p class="p4">我要提升</p>
+                <p>周围的朋友</p>
+                <p>都升值加薪了？</p>
+            </div>
+            <img class="wo-img" src="images/box1_bg4.jpg" alt="">
+            <div class="wo-bottom">
+                <p class="p4">针对提升</p>
+                <p>更轻松更专业带你找到提升点</p>
+                <p> 全面提升自我价值</p>
+            </div>
+        </div>
+    </div>
+    <div class="wsmzh">
+        <div class="ufo">
+            <img src="images/ufo_small.jpg" alt="">
+        </div>
+        <p>问我，为什么现在后台开发转前端、设计师转前端、策划、编辑转前端、运营、市场在转前端、跨行业的都在转前端。</p>
+        <p>如果现在你还在犹豫是否去学前端，你得问自己，真正想要的是什么样的工作，或者点击下方按钮。</p>
+        <div class="consult">
+            <div class="dh1"></div>
+            <div class="dh2"></div>
+            <p>咨询我适合学前端吗？</p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="web-wrap">
+            <div class="web-box">
+                实战项目接轨最热技术前沿!
+            </div>
+            <div class="web-img">
+                <img src="images/hd_bg1.png" alt="">
+            </div>
+        </div>
+        <div class="fc-box">
+            <div><img src="images/cz1.gif" alt=""></div><div><img src="images/cz2.gif" alt=""></div><div><img src="images/cz3.gif" alt=""></div><div><img src="images/cz4.gif" alt=""></div><div><img src="images/cz5.gif" alt=""></div>
+        </div>
+        <div class="wsmzh">
+            <p>学到就是赚到，多一个项目，多一种思维模式，多一点本领，多一点资本。。。</p>
+            <p>可怕的不是笨，也不是没有机会，而是机会就在眼前，你还是退缩错失了。十五年前做阿里巴巴的人基本都赚翻了，</p>
+            <p>十年前错过淘宝的人后悔不已，现在的你还可以选择。</p>
+            <div class="consult">
+                <div class="dh1"></div>
+                <div class="dh2"></div>
+                <p>我要立刻抢座</p>
+            </div>
+        </div>
+    </div>
+    <div class="sfdh">
+        <div class="sf-box">
+            <ul>
+                <li><img src="images/1.jpg" alt=""></li>
+                <li><img src="images/2.jpg" alt=""></li>
+                <li><img src="images/3.jpg" alt=""></li>
+                <li><img src="images/4.jpg" alt=""></li>
+                <li><img src="images/5.jpg" alt=""></li>
+                <li><img src="images/6.jpg" alt=""></li>
+            </ul>
+            <ul>
+                <li><img src="images/7.jpg" alt=""></li>
+                <li><img src="images/8.jpg" alt=""></li>
+                <li><img src="images/9.jpg" alt=""></li>
+                <li><img src="images/10.jpg" alt=""></li>
+                <li><img src="images/11.jpg" alt=""></li>
+                <li><img src="images/12.jpg" alt=""></li>
+            </ul>
+            <ul>
+                <li><img src="images/13.jpg" alt=""></li>
+                <li><img src="images/14.jpg" alt=""></li>
+                <li><img src="images/15.jpg" alt=""></li>
+                <li><img src="images/16.jpg" alt=""></li>
+                <li><img src="images/17.jpg" alt=""></li>
+                <li><img src="images/18.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div class="djqh">
+            <span class="action"></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="floor">
+        <div>
+            <a href="javascript:;"><img class="big" src="images/hmlogo.png" alt=""></a>
+            <a href="javascript:;"><img src="images/bxglogo.png" alt=""></a>
+            <a href="javascript:;"><img class="big" src="images/czxylogo.png" alt=""></a>
+            <a href="javascript:;"><img src="images/kdylogo.png" alt=""></a>
+            <a href="javascript:;"><img src="images/czhlogo.png" alt=""></a>
+        </div>
+
+        <div class="jrcz">
+            <a href="javascript:;">关于传智</a><span>|</span>
+            <a href="javascript:;">加入传智</a><span>|</span>
+            <a href="javascript:;">报名流程</a><span>|</span>
+            <a href="javascript:;">传智声明</a><span>|</span>
+            <a href="javascript:;">法律声明</a>
+        </div>
+
+        <div class="yqlj">
+            友情链接：
+            <a href="javascript:;">黑马程序员</a>
+            <a href="javascript:;">博学谷</a>
+            <a href="javascript:;">云课堂</a>
+            <a href="javascript:;">传智专修学院</a>
+            <a href="javascript:;">趣IT</a>
+            <a href="javascript:;">win7系统</a>
+            <a href="javascript:;">进销存软件</a>
+            <a href="javascript:;">手机群控</a>
+            <a href="javascript:;">职称计算机考试</a>
+            <a href="javascript:;">武汉房产网</a>
+            <a href="javascript:;">中国教育网</a>
+            <a href="javascript:;">论文查重</a>
+            <a href="javascript:;">PPT模板</a>
+        </div>
+        <div class="yqlj">
+            <a href="javascript:;">CCNA</a>
+            <a href="javascript:;">我爱IT技术网</a>
+            <a href="javascript:;">云计算</a>
+            <a href="javascript:;">五笔输入法下载</a>
+            <a href="javascript:;">中国在职研究生网</a>
+            <a href="javascript:;">电脑主题</a>
+            <a href="javascript:;">123标志设计网</a>
+            <a href="javascript:;">新东方小语种</a>
+            <a href="javascript:;">java1234</a>
+            <a href="javascript:;">培训师</a>
+            <a href="javascript:;">crm百会</a>
+            <a href="javascript:;">u盘启动盘制作工具</a>
+        </div>
+        <div class="yqlj">
+            <a href="javascript:;">图片素材</a>
+            <a href="javascript:;">教育技术学</a>
+            <a href="javascript:;">决胜网-教育门户</a>
+            <a href="javascript:;">录屏软件</a>
+            <a href="javascript:;">office教程学习</a>
+            <a href="javascript:;">商业源码</a>
+            <a href="javascript:;">WinKey英启在线英语</a>
+            <a href="javascript:;">申请传智播客友链</a>
+        </div>
+        <div class="phone">
+            电话：400-618-4000
+        </div>
+        <div class="img-360">
+            <img src="images/360.jpg" alt="">
+            <img src="images/chengxin.jpg" alt="">
+            <img src="images/safe.jpg" alt="">
+        </div>
+    </div>
+    <div class="bottom">
+        北京传智播客教育科技有限公司 版权所有Copyright 2006-2018，  All Rights Reserved
+        <a href="javascript:;">京ICP备08001421号X 京公网安备110108007702</a>
+        <img src="images/pic1.gif" alt="">
+    </div>
+
+</div>
+
+
+
+<script>
+    var dong = document.getElementsByClassName('dong')[0]
+    var web_wrap = document.getElementsByClassName('web-wrap')[0]
+
+
+    function fn(ele) {
+        var x, y;
+        ele.onmousemove = function (e) {
+
+            var event = e || window.event
+
+            if (x || y) {
+
+                if (x < event.clientX) {
+
+                    var num = event.clientX - x
+                    if (num % 5 == 0) {
+                        var left = this.offsetLeft
+                        this.style.left = (left - 2) + 'px'
+                        x = event.clientX
+                    }
+                }
+
+                if (x > event.clientX) {
+
+                    var num2 = x - event.clientX
+                    if (num2 % 5 == 0) {
+
+                        var left2 = this.offsetLeft
+                        this.style.left = (left2 + 2) + 'px'
+
+                        x = event.clientX
+                    }
+                }
+
+                if (y < event.clientY) {
+
+                    var numY2 = event.clientY - y
+                    if (numY2 % 5 == 0) {
+                        var topY = this.offsetTop
+                        this.style.top = (topY - 2) + 'px'
+                        y = event.clientY
+                    }
+                }
+
+                if (y > event.clientY) {
+
+                    var numY = y - event.clientY
+                    if (numY % 5 == 0) {
+
+                        var leftY = this.offsetTop
+                        this.style.top = (leftY + 2) + 'px'
+
+                        y = event.clientY
+                    }
+                }
+
+            } else {
+
+                x = event.clientX
+                y = event.clientY
+            }
+        }
+
+
+    }
+    dong.onmouseenter = function () {
+
+        fn(this)
+
+    }
+
+    dong.onmouseleave = function () {
+        this.style.top = 0;
+        this.style.left = 0;
+    }
+
+    var fc = document.getElementsByClassName('fc-box')[0].children
+    for(var f = 0; f<fc.length; f++){
+        fc[f].onmouseenter = function(){
+            for(var f2 = 0; f2<fc.length; f2++){
+                fc[f2].style.width = '12.5%'
+            }
+            this.style.width = '50%'
+        }
+
+        fc[f].onmouseleave = function(){
+            for(var f3 = 0; f3<fc.length; f3++){
+                fc[f3].style.width = '20%'
+            }
+        }
+    }
+
+    var djqh = document.getElementsByClassName('djqh')[0].children
+    var ul_arr = document.getElementsByClassName('sf-box')[0].children
+
+
+    for(var d = 0; d<djqh.length; d++){
+        djqh[d].index = d+1
+        djqh[d].onclick = function(){
+            for(var g = 0; g<djqh.length; g++){
+                djqh[g].className = ''
+            }
+            this.className = 'action'
+
+            var ul_i = this.index-1
+
+            for(var ull = 0; ull<ul_arr.length; ull++){
+                if(ull == ul_i){
+
+                    var ul = ul_arr[ul_i]
+
+                    ul.style.zIndex = 20
+                    var li_arr = ul.children
+
+                    for(var li_i = 0; li_i<li_arr.length; li_i++){
+                        li_arr[li_i].style.transform = 'scale(1,1) rotate(0deg) translate(0,0)'
+//                        li_arr[li_i].style.transform = 'scale(1,1)'
+                        li_arr[li_i].style.opacity = '1'
+                    }
+
+                }else{
+                    var ul2 = ul_arr[ull]
+                    ul2.style.zIndex = 1
+                    var li_arr2 = ul2.children
+                    for(var li_i2 = 0; li_i2<li_arr2.length; li_i2++){
+                        li_arr2[li_i2].style.transform = 'scale(0,0) rotate(0deg) translate(0,0)'
+                        li_arr2[li_i2].style.opacity = '0'
+                    }
+                    (function(liArr){
+                        setTimeout(function(){
+                            for(var li_i3 = 0; li_i3<liArr.length; li_i3++){
+                                liArr[li_i3].style.transform = 'rotate(20deg) translate(200px,120px)'
+                            }
+                        },500)
+                    })(li_arr2)
+
+                }
+            }
+        }
+    }
+
+
+    var wo = document.getElementsByClassName('wo')[0].children
+    var woImg = document.getElementsByClassName('wo-img')
+
+    for(var w = 0; w<wo.length; w++){
+        wo[w].index = w
+        wo[w].onmouseenter = function(){
+            woImg[this.index].src = 'images/box1_bg'+ (this.index+1) +'.gif'
+        }
+        wo[w].onmouseleave = function(){
+            woImg[this.index].src = 'images/box1_bg'+ (this.index+1) +'.jpg'
+        }
+    }
+
+    window.onscroll = function(){
+        var top = scroll().top
+        if(top>300){
+            web_wrap.style.transform = 'translateY(0px)'
+            web_wrap.style.opacity = '1'
+        }
+
+        if(top>500){
+            var xx = 200
+            for(var ii = 0; ii<wo.length; ii++){
+                (function(index,xx){
+                    setTimeout(function(){
+                        wo[index].style.transform = 'translateY(0px)'
+                    },xx)
+                })(ii,xx)
+                xx += 200
+            }
+
+        }
+
+        if(top>2300){
+            var sf = document.getElementsByClassName('sf-box')[0]
+            sf.style.transform = 'translateY(0px)'
+        }
+
+    }
+
+    function scroll() {
+        return {
+            "top": window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop,
+            "left": window.pageXOffset || document.body.scrollLeft || document.documentElement.scrollLeft
+        }
+    }
+
+</script>
+</body>
+</html>

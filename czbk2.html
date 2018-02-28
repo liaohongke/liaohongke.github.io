@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        body,ul,li,h1,h2,h3,p{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            height: 2000px;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .top{
+            /*width: 100%;*/
+            height: 30px;
+            background: #ebebeb;
+            font-size: 12px;
+            padding: 0 35px;
+            line-height: 30px;
+            border-bottom: 1px #dfdfdf solid;
+            color: #565656;
+        }
+        .top a{
+            text-decoration: none;
+            color: #565656;
+            margin: 0 5px;
+        }
+        .top .top-left{
+            float: left;
+        }
+        .top .top-left li{
+            float: left;
+        }
+        .top .top-right{
+            float: right;
+        }
+        .top .top-right img{
+            float: left;
+            margin: 8px 5px 0 0;
+        }
+
+        .logo{
+            padding: 15px 35px;
+
+        }
+        .logo:after{
+            content: "";
+            display: block;
+            line-height: 0;
+            height: 0;
+            visibility: hidden;
+            clear: both;
+        }
+        .logo .logo-left{
+            float: left;
+            margin-right: 50px;
+        }
+        .logo .logo-city{
+            float: left;
+            margin-top: 25px;
+            cursor: pointer;
+            position: relative;
+            width: 100px;
+        }
+        .logo .logo-city:hover .city-list{
+            display: block;
+        }
+        .logo .logo-city h3{
+            float: left;
+            font-size: 24px;
+            font-weight: 400;
+            margin: -8px 10px 0 0;
+        }
+        .logo .logo-city .city-list{
+            position: absolute;
+            top: -25px;
+            left: 90px;
+            width: 400px;
+            border: 1px solid #ececec;
+            text-align: center;
+            padding: 20px 10px;
+            z-index: 10;
+            display: none;
+            background: #ffffff;
+        }
+        .logo .logo-city .city-list .sjx{
+            position: absolute;
+            top: 25px;
+            left: -10px;
+            z-index: 10;
+        }
+        .logo .logo-city .city-list ul li{
+            width: 80px;
+            height: 100px;
+            float: left;
+            /*border: 1px solid #ccc;*/
+            box-sizing: border-box;
+            margin: 0 10px;
+        }
+        .logo .logo-city .city-list ul li p:first-child{
+            height: 40px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .logo .logo-city .city-list ul li p:last-child{
+            background: #ccc;
+        }
+        .logo .logo-city .city-list ul li:hover p:last-child{
+            background: #f00;
+        }
+        .logo .logo-city .city-list ul li p img{
+            /*vertical-align: text-bottom;*/
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+        }
+        .logo .logo-right{
+            float: right;
+            margin-top: 25px;
+            overflow: hidden;
+        }
+
+        .nav{
+            padding: 0 35px;
+            height: 40px;
+            /*overflow: hidden;*/
+        }
+        .nav>ul>li{
+            float: left;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+        }
+        .nav ul li a{
+            color: #000;
+            text-decoration: none;
+        }
+        .nav>ul>li:first-child{
+            width: 240px;
+            background: #D72502;
+            margin-right: 30px;
+            border-radius: 5px 5px 0 0/5px 5px 0 0;
+            position: relative;
+        }
+        .nav>ul>li:first-child>span{
+            color: #fff;
+        }
+        .nav>ul>li:first-child~li{
+            width: 100px;
+            /*margin: 0 10px;*/
+        }
+        .nav>ul>li:hover>a{
+            color: #f00;
+        }
+
+        .nav .nav-course{
+            background: #373B45;
+            text-align: left;
+            padding: 10px 0 30px;
+            position: relative;
+            border-radius: 0 0 8px 8px/0 0 8px 8px;
+            /*display: none;*/
+            z-index: 100;
+        }
+
+        .nav .nav-course ul{
+            overflow: hidden;
+        }
+        .nav .nav-course ul li{
+            background: #373B45;
+        }
+        .nav .nav-course ul li a{
+            position: relative;
+            font-size: 14px;
+            color: #fff;
+            display: block;
+            height: 28px;
+            line-height: 28px;
+            padding: 0 40px;
+            transition: transform 0.5s;
+        }
+        .nav .nav-course ul li:hover{
+            background: #6C6F76;
+        }
+        .nav .nav-course ul li:hover a{
+            transform: translateX(6px);
+        }
+        .nav .nav-course ul li span{
+            width: 6px;
+            height: 6px;
+            display: inline-block;
+            border-top: 1px solid #fff;
+            border-right: 1px solid #fff;
+            transform: rotateZ(45deg);
+            position: absolute;
+            right: 40px;
+            top: 10px;
+        }
+
+        .nav .nav-course .course-js{
+            position: absolute;
+            top: 0;
+            left: 240px;
+            width: 240px;
+            height: 386px;
+            display: none;
+            text-align: center;
+            padding: 50px 0;
+            border: 1px solid #eee;
+            background: #fff;
+            z-index: 100;
+        }
+        .nav .nav-course .course-js .course-box{
+            width: 120px;
+            float: left;
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 0 0 0 20px;
+            box-sizing: border-box;
+        }
+        .nav .nav-course .course-js .course-box:nth-child(2n){
+            padding: 0 20px 0 0;
+        }
+        .nav .nav-course .course-js .course-box p{
+            margin-top: -15px;
+        }
+        .nav .nav-course .course-js .course-box a:hover p{
+            color: #f00;
+        }
+        .nav .nav-course .course-js .course-wrap a:hover img{
+            opacity: 0.7;
+        }
+        .nav .nav-course .course-js .course-wrap{
+            margin-bottom: 20px;
+        }
+
+        .slides{
+            height: 385px;
+            background: #010e31;
+            /*background: #011b4c;*/
+            /*background: #0067a2;*/
+            /*background: #1c1c26;*/
+            position: relative;
+            transition: all 1s;
+            overflow: hidden;
+        }
+
+        .slides .slides-left{
+            width: 275px;
+            height: 385px;
+            /*background: #eeeeee;*/
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .slides .slides-right{
+            margin-left: 275px;
+            height: 100%;
+            /*background: #e0e0e0;*/
+            position: relative;
+            overflow: hidden;
+        }
+        .slides:hover .slides-right .click-left,.slides:hover .slides-right .click-right{
+            display: block;
+        }
+        .slides .slides-right .click-left,.slides .slides-right .click-right{
+            position: absolute;
+            width: 30px;
+            height: 50px;
+            background: #3A394F;
+            top: 50%;
+            margin-top: -35px;
+            border-radius: 3px;
+            cursor: pointer;
+            overflow: hidden;
+            display: none;
+            z-index: 5;
+        }
+        .slides .slides-right .click-left{
+            left: 10px;
+        }
+        .slides .slides-right .click-left img{
+            position: absolute;
+            top: 8px;
+            left: -170px;
+        }
+        .slides .slides-right .click-right{
+            right: 40px;
+        }
+        .slides .slides-right .click-right img{
+            position: absolute;
+            top: 8px;
+            left: -53px;
+        }
+        .slides .slides-right .click-right:hover{
+            background: #5c5b6c;
+        }
+        .slides .slides-right .click-right:hover img{
+            left: 7px;
+        }
+        .slides .slides-right .click-left:hover img{
+            left: -110px
+        }
+        .slides .slides-right .click-left:hover{
+            background: #5c5b6c;
+        }
+
+        .slides .slides-right .slides-hover{
+            text-align: center;
+            position: absolute;
+            left: 0;
+            bottom: 20px;
+            width: 100%;
+            z-index:5;
+        }
+        .slides .slides-right .slides-hover ul{
+            display: inline-block;
+        }
+        .slides .slides-right .slides-hover ul li{
+            float: left;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            margin: 0 10px;
+            opacity: 0.3;
+        }
+        .slides .slides-right .slides-hover ul li.action{
+            width: 14px;
+            opacity: 1;
+        }
+        .slides .slides-right .slides-img>a{
+            position: absolute;
+            transition: all 1s;
+            opacity: 0;
+        }
+        .slides .slides-right .slides-img>a.slides-action{
+            z-index: 2;
+            opacity: 1;
+        }
+
+        .jh{
+            margin-left: 285px;
+            height: 91px;
+            background: #F6F6F6;
+            padding-top: 10px;
+            overflow: hidden;
+        }
+        .jh>ul>li{
+            width: 225px;
+            height: 91px;
+            border-radius: 5px;
+            margin-right: 10px;
+            float: left;
+            border: 1px solid #eee;
+            background: #fff;
+        }
+        .jh>ul>li a{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .jh>ul>li:last-child{
+            display: flex;
+            flex-wrap: wrap;
+            font-size: 14px;
+        }
+        .jh>ul>li:last-child a{
+            width: 50%;
+            height: 50%;
+            box-sizing: border-box;
+        }
+        .jh>ul>li:last-child a:hover .jh-box .jh-text p{
+            color: #f00;
+        }
+        .jh>ul>li:last-child a:nth-child(2n){
+            border-left: 1px solid #eee;
+        }
+        .jh>ul>li:last-child a:nth-child(3n){
+            border-top: 1px solid #eee;
+        }
+        .jh>ul>li:last-child a:last-child{
+            border-top: 1px solid #eee;
+        }
+        .jh>ul>li a .jh-box .jh-img{
+            float: left;
+        }
+        .jh>ul>li a .jh-box .jh-text{
+            float: left;
+            padding-left: 15px;
+            color: #000;
+        }
+        .jh>ul>li:last-child a .jh-box .jh-text{
+            padding: 2px 0 0 5px;
+        }
+        .jh>ul>li:not(:last-child):hover .jh-box{
+            animation: top 0.3s forwards;
+        }
+
+        @keyframes top {
+            0%{
+                transform: translateY(0px);
+            }
+            50%{
+                transform: translateY(-1px);
+            }
+            100%{
+                transform: translateY(-2px);
+            }
+        }
+
+        .text-title{
+            padding: 50px 0 40px;
+            background: #F6F6F6;
+            overflow: hidden;
+        }
+        .text-title h2{
+            text-align: center;
+            font-size: 32px;
+            font-weight: 400;
+        }
+        .text-title p{
+            padding-top: 10px;
+            text-align: center;
+            color: #8B8B8B;
+        }
+
+        .know-czbk{
+            padding: 0 35px;
+            height: 358px;
+            background: #F6F6F6;
+            overflow: hidden;
+        }
+        .know-czbk .know-left{
+            float: left;
+            width: 760px;
+            height: 358px;
+            background: #eee;
+            overflow: hidden;
+        }
+
+        .know-czbk .know-left .big-img{
+            float: left;
+            position: relative;
+            cursor: pointer;
+        }
+        .know-czbk .know-left .sml-img{
+            float: left;
+            background: #242424;
+            width: 180px;
+            height: 100%;
+            padding: 25px 20px 0;
+            box-sizing: border-box;
+        }
+        .know-czbk .know-left .sml-img ul li{
+            width: 100%;
+            height: 68px;
+            overflow: hidden;
+            margin: 0 0 12px 0;
+            cursor: pointer;
+            box-sizing: border-box;
+            border: 1px solid transparent;
+        }
+        .know-czbk .know-left .sml-img ul li img{
+            width: 100%;
+            /*height: 70px;*/
+        }
+        .know-czbk .know-left .big-img .video-img{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .know-czbk .know-left .big-img .video-text{
+            position: absolute;
+            bottom: 20px;
+            left: 50px;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .know-czbk .know-right{
+            float: right;
+            width: 400px;
+            height: 358px;
+            background: #fff;
+            box-sizing: border-box;
+            padding: 30px 25px 0;
+            border-top: 2px solid #f00;
+            overflow: hidden;
+        }
+        .know-czbk .know-right h2{
+            font-weight: 400;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .know-czbk .know-right h2 span{
+            color: #a2a2a2;
+            font-weight: 400;
+            font-size: 14px;
+        }
+        .know-czbk .know-right ul li{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            /*margin: 10px 0;*/
+            height: 32px;
+            line-height: 32px;
+        }
+        .know-czbk .know-right ul li span{
+            color: #000;
+            /*font-size: 14px;*/
+        }
+        .know-czbk .know-right ul li span:first-child{
+            color: #fff;
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+            text-align: center;
+            background: #cccccc;
+            font-size: 14px;
+            margin: 0 5px;
+        }
+        .know-czbk .know-right ul li:last-child span:last-child{
+            color: #f00;
+        }
+        .know-czbk .know-right ul li:nth-child(-n+3) span:first-child{
+            background: #f00;
+        }
+        .know-czbk .know-right ul li:hover{
+            background: #eee;
+        }
+
+        .container{
+            padding: 0 30px 30px 35px;
+            height: 393px;
+            overflow: hidden;
+            background: #F6F6F6;
+        }
+        .container .cztt-left{
+            float: left;
+            position: relative;
+            overflow: hidden;
+        }
+        .container .cztt-left img{
+            transition: all 0.5s;
+        }
+        .container .cztt-left .cztt-text{
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 20px;
+            color: #fff;
+        }
+        .container .cztt-left:hover img{
+            transform: scale(1.05,1.05);
+        }
+        .container .cztt-right{
+            float: right;
+            width: 695px;
+            height: 393px;
+            /*background: #000;*/
+            position: relative;
+            overflow: hidden;
+        }
+        .container .cztt-right .cztt-slides{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: #F6F6F6;
+        }
+        .container .cztt-right .cztt-slides:first-child{
+            z-index: 2;
+        }
+        .container .cztt-right .cztt-slides ul{}
+        .container .cztt-right .cztt-slides ul li{
+            float: left;
+            margin-right: 10px;
+            font-size: 0;
+        }
+        .container .cztt-right .cztt-slides ul li:nth-child(3n){
+            margin: 0;
+        }
+        .container .cztt-right .cztt-slides ul li:nth-child(-n+3){
+            padding-bottom: 27px;
+        }
+        .container .cztt-right .cztt-slides ul li p{
+            font-size: 14px;
+            color: #6e6e6e;
+        }
+        .container .cztt-right .cztt-slides ul li a p:first-of-type{
+            margin-top: 10px;
+        }
+        .container .cztt-right .cztt-slides ul li img{
+            transition: all 0.5s;
+        }
+        .container .cztt-right .cztt-slides ul li:hover img{
+            transform: scale(1.05,1.05);
+        }
+        .container .cztt-right .cztt-slides ul li .cztt-slides-img{
+            overflow: hidden;
+        }
+        .container .cztt-right .cztt-click{
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            z-index: 10;
+            display: none;
+        }
+        .container .cztt-right:hover .cztt-click{
+            display: block
+        }
+        .container .cztt-right .cztt-click span{
+            display: inline-block;
+            width: 34px;
+            height: 18px;
+            line-height: 16px;
+            text-align: center;
+            color: #fff;
+            background: #0667a2;
+            cursor: pointer;
+        }
+        .container .cztt-right .cztt-click span:last-child{
+            float: right;
+        }
+        .floor{
+            text-align: center;
+            background: #eaeaea;
+            padding-top: 50px;
+        }
+
+        .floor>div:first-child img{
+            width: 100px;
+            margin: 0 30px;
+        }
+        .floor>div:first-child img.big{
+            width: 120px;
+        }
+        .floor .jrcz{
+            padding: 40px 0;
+            font-size: 14px;
+        }
+        .floor .jrcz a{
+            margin: 0 10px;
+            color: #707070;
+        }
+        .floor .jrcz span{
+            color: #707070;
+        }
+        .floor .yqlj{
+            font-size: 12px;
+            color: #707070;
+            margin-bottom: 10px;
+        }
+
+        .floor .yqlj a{
+            margin: 0 5px;
+            color: #707070;
+        }
+        .floor .yqlj a:hover{
+            color: #f00;
+        }
+        .floor .phone{
+            padding: 20px 0 40px 0;
+            font-size: 12px;
+            color: #707070;
+        }
+        .floor .img-360{
+            padding: 0 0 30px 0;
+        }
+        .floor .img-360 img{
+            width: 80px;
+            margin: 0 5px;
+        }
+        .bottom{
+            background: #343B43;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            color: #c2c2c2;
+            font-size: 12px
+        }
+        .bottom a{
+            color: #188eee;
+            margin: 0 10px;
+        }
+        .bottom img{}
+    </style>
+</head>
+<body>
+    <div class="top">
+        <ul class="top-left">
+            <li>传智旗下品牌：</li>
+            <li><a href="">黑马程序员</a><span>|</span></li>
+            <li><a href="">博学谷</a><span>|</span></li>
+            <li><a href="">传智专修学院</a></li>
+        </ul>
+        <ul class="top-right">
+            <li><img src="images/phone.png" alt="">全国咨询热线：400-618-4000 | 股票代码：839976</li>
+        </ul>
+    </div>
+
+    <div class="logo">
+        <div class="logo-left">
+            <img src="images/logo.png" alt="">
+        </div>
+        <div class="logo-city">
+            <h3>北京</h3>
+            <img src="images/city_z.jpg" alt="">
+            <div class="city-list">
+                <div class="sjx"><img src="images/city/arrow.jpg" alt=""></div>
+                <ul>
+                    <li><p><img src="images/city/bj_city.jpg" alt=""></p><p>北京</p></li>
+                    <li><p><img src="images/city/cd_city_new.jpg" alt=""></p><p>上海</p></li>
+                    <li><p><img src="images/city/cq_city.jpg" alt=""></p><p>深圳</p></li>
+                    <li><p><img src="images/city/cs_city.jpg" alt=""></p><p>广州</p></li>
+                    <li><p><img src="images/city/gz_city.jpg" alt=""></p><p>长沙</p></li>
+                    <li><p><img src="images/city/heb_city.jpg" alt=""></p><p>西安</p></li>
+                    <li><p><img src="images/city/hz_city_new.jpg" alt=""></p><p>沈阳</p></li>
+                    <li><p><img src="images/city/jn_city.jpg" alt=""></p><p>郑州</p></li>
+                    <li><p><img src="images/city/nj_city_new.jpg" alt=""></p><p>成都</p></li>
+                    <li><p><img src="images/city/sh_city.jpg" alt=""></p><p>哈尔滨</p></li>
+                    <li><p><img src="images/city/sjz_city_new.jpg" alt=""></p><p>武汉</p></li>
+                    <li><p><img src="images/city/sz_city.jpg" alt=""></p><p>合肥</p></li>
+                </ul>
+            </div>
+        </div>
+        <div class="logo-right">
+            <img src="images/slogan.jpg" alt="">
+        </div>
+    </div>
+
+    <div class="nav">
+        <ul>
+            <li>
+                <span>精品课程</span>
+                <div class="nav-course">
+                    <ul class="course-hover">
+                        <li><a href="javascript:;">JavaEE<span></span></a></li>
+                        <li><a href="javascript:;">人工智能+Python<span></span></a></li>
+                        <li><a href="javascript:;">前端与移动开发<span></span></a></li>
+                        <li><a href="javascript:;">UI/UE综合设计师<span></span></a></li>
+                        <li><a href="javascript:;">PHP<span></span></a></li>
+                        <li><a href="javascript:;">C/C++<span></span></a></li>
+                        <li><a href="javascript:;">云计算大数据<span></span></a></li>
+                        <li><a href="javascript:;">H5+全栈工程师<span></span></a></li>
+                        <li><a href="javascript:;">新媒体运营<span></span></a></li>
+                        <li><a href="javascript:;">电商运营<span></span></a></li>
+                        <li><a href="javascript:;">视觉设计<span></span></a></li>
+                        <li><a href="javascript:;">产品经理<span></span></a></li>
+                        <li><a href="javascript:;">软件测试<span></span></a></li>
+                        <li><a href="javascript:;">广告设计<span></span></a></li>
+                        <li><a href="javascript:;">网络安全+运维工程师<span></span></a></li>
+                        <li><a href="javascript:;">智能物联网+区块链<span></span></a></li>
+                    </ul>
+                    <div class="course-js">
+                        <div>
+                            <div class="course-box">
+                                <a href="javascript:;">
+                                    <img src="images/icon_fuli1.jpg" alt="">
+                                    <p>学科介绍</p>
+                                </a>
+                            </div>
+                            <div class="course-box">
+                                <a href="javascript:;">
+                                    <img src="images/icon_fuli2.jpg" alt="">
+                                    <p>师资力量</p>
+                                </a>
+                            </div>
+                            <div class="course-box">
+                                <a href="javascript:;">
+                                    <img src="images/icon_fuli3.jpg" alt="">
+                                    <p>视频下载</p>
+                                </a>
+                            </div>
+                            <div class="course-box course-action">
+                                <a href="javascript:;">
+                                    <img src="images/icon_fuli4.jpg" alt="">
+                                    <p>进入学府</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="course-wrap">
+                            <a href="javascript:;">
+                                <img class="course-img" src="images/icon_fuli5.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="course-wrap">
+                            <a href="javascript:;">
+                                <img class="course-img" src="images/icon_fuli6.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="javascript:;">视频教程</a></li>
+            <li><a href="javascript:;">公开课</a></li>
+            <li><a href="javascript:;">原创教材</a></li>
+            <li><a href="javascript:;">讲师团队</a></li>
+            <li><a href="javascript:;">校区汇总</a></li>
+            <li><a href="javascript:;">学员故事</a></li>
+            <li><a href="javascript:;">报名流程</a></li>
+            <li><a href="javascript:;">在线学习</a></li>
+            <li><a href="javascript:;">技术社区</a></li>
+        </ul>
+    </div>
+
+    <div class="slides">
+        <div class="slides-left"></div>
+        <div class="slides-right">
+            <div class="slides-img">
+                <a class="slides-action" href="javascript:;">
+                    <img src="images/slides1.jpg" alt="">
+                </a>
+                <a href="javascript:;">
+                    <img src="images/slides2.jpg" alt="">
+                </a>
+                <a href="javascript:;">
+                    <img src="images/slides3.jpg" alt="">
+                </a>
+                <a href="javascript:;">
+                    <img src="images/slides4.jpg" alt="">
+                </a>
+            </div>
+            <div class="click-left">
+                <img src="images/slider-arrow.png" alt="">
+            </div>
+            <div class="click-right">
+                <img src="images/slider-arrow.png" alt="">
+            </div>
+            <div class="slides-hover">
+                <ul>
+                    <li class="action"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="jh">
+        <ul>
+            <li>
+                <a href="javascript:;">
+                    <div class="jh-box">
+                        <div class="jh-img">
+                            <img src="images/banup1.jpg" alt="">
+                        </div>
+                        <div class="jh-text">
+                            <p>2018年传智播客</p>
+                            <p>开班计划</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="jh-box">
+                        <div class="jh-img">
+                            <img src="images/banup2.jpg" alt="">
+                        </div>
+                        <div class="jh-text">
+                            <p>传智播客全学科</p>
+                            <p>就业薪资</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="jh-box">
+                        <div class="jh-img">
+                            <img src="images/banup3.jpg" alt="">
+                        </div>
+                        <div class="jh-text">
+                            <p>年薪40-60万</p>
+                            <p>招聘全学科讲师</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="jh-box">
+                        <div class="jh-img">
+                            <img src="images/kstd1.jpg" alt="">
+                        </div>
+                        <div class="jh-text">
+                            <p>学费价格</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="javascript:;">
+                    <div class="jh-box">
+                        <div class="jh-img">
+                            <img src="images/kstd2.jpg" alt="">
+                        </div>
+                        <div class="jh-text">
+                            <p>报名流程</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="javascript:;">
+                    <div class="jh-box">
+                        <div class="jh-img">
+                            <img src="images/kstd3.jpg" alt="">
+                        </div>
+                        <div class="jh-text">
+                            <p>来校路线</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="javascript:;">
+                    <div class="jh-box">
+                        <div class="jh-img">
+                            <img src="images/kstd4.jpg" alt="">
+                        </div>
+                        <div class="jh-text">
+                            <p>学员故事</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="text-title">
+        <h2>认识传智从这里开始</h2>
+        <p>为莘莘学子改变命运而讲课，为千万学生少走弯路而著书！</p>
+    </div>
+
+    <div class="know-czbk">
+        <div class="know-left">
+            <div class="big-img">
+                <img class="now-img" src="images/know1.jpg" alt="">
+                <div class="video-img"><img src="images/knowvideo.png" alt=""></div>
+                <div class="video-text">传智播客最新宣传片《聚力·筑梦》</div>
+            </div>
+            <div class="sml-img">
+                <ul>
+                    <li><img src="images/know1.jpg" alt=""></li>
+                    <li><img src="images/know2.jpg" alt=""></li>
+                    <li><img src="images/know3.jpg" alt=""></li>
+                    <li><img src="images/know4.jpg" alt=""></li>
+                </ul>
+            </div>
+        </div>
+        <div class="know-right">
+            <h2>最新动态 <span>ITCAST</span></h2>
+            <ul>
+                <li><a href="javascript:;"><span>1</span><span>传智播客荣获2017百度教育盛典“知名IT教育品牌”、“年度品牌视频机构”两大奖项</span></a></li>
+                <li><a href="javascript:;"><span>2</span><span>传智播客荣膺2017新浪教育盛典“中国品牌实力教育集团”奖</span></a></li>
+                <li><a href="javascript:;"><span>3</span><span>传智播客原创教材荣获中国铁道出版社“优秀双效出版物奖”</span></a></li>
+                <li><a href="javascript:;"><span>4</span><span>投入10个亿，传智专修学院要建设大型智能化高校校园</span></a></li>
+                <li><a href="javascript:;"><span>5</span><span>强强联合！传智播客携手OneAPM开启Linux运维新纪元</span></a></li>
+                <li><a href="javascript:;"><span>6</span><span>北京科蓝软件系统股份有限公司来传智播客郑州校区举办双选招聘会</span></a></li>
+                <li><a href="javascript:;"><span>7</span><span>传智播客荣获决胜网“2017年度教育行业最具传播力品牌”称号</span></a></li>
+                <li><a href="javascript:;"><span>8</span><span>关于近期不法机构冒充传智播客招生的声明</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="text-title">
+        <h2>传智头条</h2>
+        <p>改变中国IT教育，我们正在行动！</p>
+    </div>
+
+    <div class="container">
+        <div class="cztt-left">
+            <a href="javascript:;">
+                <div class="cztt-img"><img src="images/cztt.jpg" alt=""></div>
+                <div class="cztt-text">2018新开学科/校区大盘点 最高优惠6000元</div>
+            </a>
+        </div>
+        <div class="cztt-right">
+
+            <div class="cztt-slides">
+                <ul>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="cztt-slides-img">
+                                <img src="images/cztt1.jpg" alt="">
+                            </div>
+                            <p>JavaEE学科10年精品项目</p>
+                            <p>助你在IT职场中不断进阶升级</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="cztt-slides-img">
+                                <img src="images/cztt2.jpg" alt="">
+                            </div>
+                            <p>大数据云计算时代</p>
+                            <p>网络安全+运维必然更重要</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="cztt-slides-img">
+
+                                <img src="images/cztt3.jpg" alt="">
+                            </div>
+                            <p>开新学科：智能物联网+区块链</p>
+                            <p>首期钜惠6000元 3月26日等你来</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="cztt-slides-img">
+
+                                <img src="images/cztt4.jpg" alt="">
+                            </div>
+                            <p>国务院出台政策</p>
+                            <p>推动"人工智能+Python发展红利"</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="cztt-slides-img">
+
+                                <img src="images/cztt5.jpg" alt="">
+                            </div>
+                            <p>新媒体运营连续多期100%就业</p>
+                            <p>上海校区首期班学费立减4000元</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="cztt-slides-img">
+
+                                <img src="images/cztt6.jpg" alt="">
+                            </div>
+                            <p>入门更易学的IT技术</p>
+                            <p>平均就业薪资8000元/月起</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="cztt-slides">
+                <ul>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="cztt-slides-img">
+                                <img src="images/cztt7.jpg" alt="">
+                            </div>
+                            <p>JavaEE学科10年精品项目</p>
+                            <p>助你在IT职场中不断进阶升级</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="cztt-slides-img">
+                                <img src="images/cztt8.jpg" alt="">
+                            </div>
+                            <p>大数据云计算时代</p>
+                            <p>网络安全+运维必然更重要</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="cztt-slides-img">
+
+                                <img src="images/cztt9.jpg" alt="">
+                            </div>
+                            <p>开新学科：智能物联网+区块链</p>
+                            <p>首期钜惠6000元 3月26日等你来</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="cztt-slides-img">
+
+                                <img src="images/cztt10.jpg" alt="">
+                            </div>
+                            <p>国务院出台政策</p>
+                            <p>推动"人工智能+Python发展红利"</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="cztt-slides-img">
+
+                                <img src="images/cztt11.jpg" alt="">
+                            </div>
+                            <p>新媒体运营连续多期100%就业</p>
+                            <p>上海校区首期班学费立减4000元</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="cztt-slides-img">
+
+                                <img src="images/cztt12.jpg" alt="">
+                            </div>
+                            <p>入门更易学的IT技术</p>
+                            <p>平均就业薪资8000元/月起</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="cztt-click">
+                <span><</span>
+                <span>></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="floor">
+        <div>
+            <a href="javascript:;"><img class="big" src="images/hmlogo.png" alt=""></a>
+            <a href="javascript:;"><img src="images/bxglogo.png" alt=""></a>
+            <a href="javascript:;"><img class="big" src="images/czxylogo.png" alt=""></a>
+            <a href="javascript:;"><img src="images/kdylogo.png" alt=""></a>
+            <a href="javascript:;"><img src="images/czhlogo.png" alt=""></a>
+        </div>
+
+        <div class="jrcz">
+            <a href="javascript:;">关于传智</a><span>|</span>
+            <a href="javascript:;">加入传智</a><span>|</span>
+            <a href="javascript:;">报名流程</a><span>|</span>
+            <a href="javascript:;">传智声明</a><span>|</span>
+            <a href="javascript:;">法律声明</a>
+        </div>
+
+        <div class="yqlj">
+            友情链接：
+            <a href="javascript:;">黑马程序员</a>
+            <a href="javascript:;">博学谷</a>
+            <a href="javascript:;">云课堂</a>
+            <a href="javascript:;">传智专修学院</a>
+            <a href="javascript:;">趣IT</a>
+            <a href="javascript:;">win7系统</a>
+            <a href="javascript:;">进销存软件</a>
+            <a href="javascript:;">手机群控</a>
+            <a href="javascript:;">职称计算机考试</a>
+            <a href="javascript:;">武汉房产网</a>
+            <a href="javascript:;">中国教育网</a>
+            <a href="javascript:;">论文查重</a>
+            <a href="javascript:;">PPT模板</a>
+        </div>
+        <div class="yqlj">
+            <a href="javascript:;">CCNA</a>
+            <a href="javascript:;">我爱IT技术网</a>
+            <a href="javascript:;">云计算</a>
+            <a href="javascript:;">五笔输入法下载</a>
+            <a href="javascript:;">中国在职研究生网</a>
+            <a href="javascript:;">电脑主题</a>
+            <a href="javascript:;">123标志设计网</a>
+            <a href="javascript:;">新东方小语种</a>
+            <a href="javascript:;">java1234</a>
+            <a href="javascript:;">培训师</a>
+            <a href="javascript:;">crm百会</a>
+            <a href="javascript:;">u盘启动盘制作工具</a>
+        </div>
+        <div class="yqlj">
+            <a href="javascript:;">图片素材</a>
+            <a href="javascript:;">教育技术学</a>
+            <a href="javascript:;">决胜网-教育门户</a>
+            <a href="javascript:;">录屏软件</a>
+            <a href="javascript:;">office教程学习</a>
+            <a href="javascript:;">商业源码</a>
+            <a href="javascript:;">WinKey英启在线英语</a>
+            <a href="javascript:;">申请传智播客友链</a>
+        </div>
+        <div class="phone">
+            电话：400-618-4000
+        </div>
+        <div class="img-360">
+            <img src="images/360.jpg" alt="">
+            <img src="images/chengxin.jpg" alt="">
+            <img src="images/safe.jpg" alt="">
+        </div>
+    </div>
+    <div class="bottom">
+        北京传智播客教育科技有限公司 版权所有Copyright 2006-2018，  All Rights Reserved
+        <a href="javascript:;">京ICP备08001421号X 京公网安备110108007702</a>
+        <img src="images/pic1.gif" alt="">
+    </div>
+
+
+    <script>
+        var course = document.getElementsByClassName('course-js')[0]
+        var ul = document.getElementsByClassName('course-hover')[0]
+        var lis = ul.children
+        var img = document.getElementsByClassName('course-img')
+        var action = document.getElementsByClassName('course-action')[0]
+        ul.onmouseenter = function(){
+            course.style.display = 'block'
+            for(var i = 0; i<lis.length; i++){
+                lis[i].index = i
+
+                lis[i].onmouseenter = function(){
+                    if(this.index % 2 == 0){
+                        img[0].src = 'images/icon_fuli5.jpg'
+                        img[1].src = 'images/icon_fuli6.jpg'
+                    }else{
+                        img[1].src = 'images/icon_fuli5.jpg'
+                        img[0].src = 'images/icon_fuli6.jpg'
+                    }
+
+                    if(this.index>12){
+                        action.style.display = 'none'
+                    }else{
+                        action.style.display = 'block'
+                    }
+                }
+            }
+        }
+        document.getElementsByClassName('nav-course')[0].onmouseleave = function(){
+            course.style.display = 'none'
+        }
+
+        var slides = document.getElementsByClassName('slides')[0]
+        var slidesImg = document.getElementsByClassName('slides-img')[0].children
+        var bgArr = ['#010e31','#011b4c','#0067a2','#1c1c26']
+
+        var slidesLis = document.getElementsByClassName('slides-hover')[0].children[0].children
+
+        var slidesLeft = document.getElementsByClassName('click-left')[0]
+        var slidesRight = document.getElementsByClassName('click-right')[0]
+
+
+        var index = 0
+
+        var timer = setInterval(slidesAction,3000)
+
+        slides.onmouseenter = function(){
+            clearInterval(timer)
+        }
+        slides.onmouseleave = function(){
+            timer = setInterval(slidesAction,3000)
+        }
+        for(var y = 0; y<slidesLis.length; y++){
+            slidesLis[y].index = y
+            slidesLis[y].onmouseenter = function(){
+                index = this.index
+                index = index-1
+
+                slidesAction()
+
+            }
+        }
+
+        slidesLeft.onclick = function(){
+            index = index-2
+            if(index<0 && index != -1){
+                index = slidesImg.length-2
+            }
+            slidesAction()
+        }
+        slidesRight.onclick = function(){
+            slidesAction()
+        }
+
+        function slidesAction(){
+            for(var i = 0; i<slidesImg.length; i++){
+                slidesImg[i].className = ''
+            }
+            index++
+            if(index==slidesImg.length){
+                index = 0
+            }
+
+            slidesImg[index].className = 'slides-action'
+            slides.style.background = bgArr[index]
+            for(var x = 0; x<slidesLis.length; x++){
+                slidesLis[x].className = ''
+            }
+            slidesLis[index].className = 'action'
+
+        }
+
+        var knowImg = document.getElementsByClassName('sml-img')[0].children[0].children
+        var nowImg = document.getElementsByClassName('now-img')[0]
+        var smlImg = document.getElementsByClassName('sml-img')[0]
+
+        var nowBg = ['#242424','#F9FFFF','#0C0C0A','#AEB0A2']
+        for(var k = 0; k<knowImg.length; k++){
+            knowImg[k].index = k
+            knowImg[k].onclick = function(){
+                nowImg.src = this.children[0].src
+                for(var i = 0; i<knowImg.length; i++){
+                    knowImg[i].style.border = '1px solid transparent'
+                }
+                this.style.border = '1px solid #fff'
+                smlImg.style.background = nowBg[this.index]
+            }
+        }
+
+        var czttClick = document.getElementsByClassName('cztt-click')[0].children
+        var czttSlides = document.getElementsByClassName('cztt-slides')
+//        var czttSlides2 = document.getElementsByClassName('cztt-slides')[1]
+        var czttWidth = document.getElementsByClassName('cztt-right')[0].offsetWidth
+        console.log(czttWidth)
+
+
+        var czttIndex = 0
+        czttClick[0].onclick = function(){
+
+            for(var i = 0; i<czttSlides.length; i++){
+                czttSlides[i].style.left = '-695px'
+            }
+            czttSlides[czttIndex].style.left = 0
+            if(czttIndex == 0){
+                animate(czttSlides[czttIndex],'left',695)
+                animate(czttSlides[czttSlides.length-1],'left',0)
+                czttIndex = czttSlides.length-1
+                return
+            }
+            animate(czttSlides[czttIndex],'left',695)
+            animate(czttSlides[czttIndex-1],'left',0)
+
+            czttIndex--
+        }
+        czttClick[1].onclick = function(){
+            for(var i = 0; i<czttSlides.length; i++){
+                czttSlides[i].style.left = '695px'
+            }
+            czttSlides[czttIndex].style.left = 0
+
+            if(czttIndex == czttSlides.length-1){
+                animate(czttSlides[czttIndex],'left',-695)
+                animate(czttSlides[0],'left',0)
+                czttIndex = 0
+                return
+            }
+
+            animate(czttSlides[czttIndex],'left',-695)
+            animate(czttSlides[czttIndex+1],'left',0)
+
+            czttIndex++
+        }
+
+        //参数变为3个
+        function animate(ele,attr,target){
+
+            //先清定时器
+            clearInterval(ele.timer);
+
+            ele.timer = setInterval(function () {
+
+                //获取属性当前的值
+                var leader = parseInt(getStyle(ele,attr)) || 0;
+
+                //1.获取步长，属性的目标值减去当前的值再除以10
+                var step = (target - leader)/10;
+
+                //2.二次加工步长，如果是正数就向上取整，负数就向下取整，例如：还剩下0.8没有走完，向下取整的话是0就不会再走，所以要向上
+                step = step>0?Math.ceil(step):Math.floor(step);
+
+                leader = leader + step;
+
+
+                //3.赋值
+                ele.style[attr] = leader + "px";
+
+                //4.清除定时器，当目标距离减去现在的距离，小于或等于步长时，就直接定位到目标距离，再停止定时器，
+                if(Math.abs(target-leader)<=Math.abs(step)){
+                    ele.style[attr] = target + "px";
+                    clearInterval(ele.timer);
+                }
+
+            },15);
+        }
+
+        //兼容方法获取元素样式
+        function getStyle(ele,attr){
+            if(window.getComputedStyle){
+                return window.getComputedStyle(ele,null)[attr];
+            }
+            return ele.currentStyle[attr];
+        }
+
+
+    </script>
+</body>
+</html>
